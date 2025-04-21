@@ -1,0 +1,115 @@
+{
+    "py/object": "courses.Courses",
+    "courses": [
+        {
+            "py/object": "course.Course",
+            "crn": 86785,
+            "semester": "fall",
+            "year": 2025,
+            "description": "Multi 8am",
+            "url": "https://oscar.gatech.edu/bprod/bwckschd.p_disp_detail_sched?term_in=202508&crn_in=86785",
+            "availability": {
+                "seats": {
+                    "capacity": 90,
+                    "actual": 90,
+                    "remaining": 0
+                },
+                "waitlist": {
+                    "capacity": 0,
+                    "actual": 0,
+                    "remaining": 0
+                }
+            },
+            "mjor_restrictions": []
+        },
+        {
+            "py/object": "course.Course",
+            "crn": 81327,
+            "semester": "fall",
+            "year": 2025,
+            "description": "CS 3600 A",
+            "url": "https://oscar.gatech.edu/bprod/bwckschd.p_disp_detail_sched?term_in=202508&crn_in=81327",
+            "availability": {
+                "seats": {
+                    "capacity": 330,
+                    "actual": 208,
+                    "remaining": 122
+                },
+                "waitlist": {
+                    "capacity": 50,
+                    "actual": 0,
+                    "remaining": 50
+                }
+            },
+            "mjor_restrictions": []
+        },
+        {
+            "py/object": "course.Course",
+            "crn": 80901,
+            "semester": "fall",
+            "year": 2025,
+            "description": "MATH 3012 B",
+            "url": "https://oscar.gatech.edu/bprod/bwckschd.p_disp_detail_sched?term_in=202508&crn_in=80901",
+            "availability": {
+                "seats": {
+                    "capacity": 50,
+                    "actual": 49,
+                    "remaining": 1
+                },
+                "waitlist": {
+                    "capacity": 5,
+                    "actual": 0,
+                    "remaining": 5
+                }
+            },
+            "mjor_restrictions": [
+                "Mathematics"
+            ]
+        },
+        {
+            "py/object": "course.Course",
+            "crn": 80769,
+            "semester": "fall",
+            "year": 2025,
+            "description": "EAS A",
+            "url": "https://oscar.gatech.edu/bprod/bwckschd.p_disp_detail_sched?term_in=202508&crn_in=80769",
+            "availability": {
+                "seats": {
+                    "capacity": 90,
+                    "actual": 90,
+                    "remaining": 0
+                },
+                "waitlist": {
+                    "capacity": 0,
+                    "actual": 0,
+                    "remaining": 0
+                }
+            },
+            "mjor_restrictions": []
+        },
+        {
+            "py/object": "course.Course",
+            "crn": 86858,
+            "semester": "fall",
+            "year": 2025,
+            "description": "2110 C",
+            "url": "https://oscar.gatech.edu/bprod/bwckschd.p_disp_detail_sched?term_in=202508&crn_in=86858",
+            "availability": {
+                "seats": {
+                    "capacity": 100,
+                    "actual": 100,
+                    "remaining": 0
+                },
+                "waitlist": {
+                    "capacity": 50,
+                    "actual": 50,
+                    "remaining": 0
+                }
+            },
+            "mjor_restrictions": [
+                "Computational Media",
+                "Computer Science"
+            ]
+        }
+    ]
+}
