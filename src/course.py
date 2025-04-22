@@ -9,13 +9,17 @@ class Course:
             crn: int,
             semester: str,
             year: int,
-            description: str | None = None
+            name: str
     ):
         self.crn = crn
         self.semester = semester.lower()
         self.year = year
-        self.description = description
+        self.name = name
         self.url = Course.create_url(crn, semester, year)
+        try:
+            self.update_availability()
+        except Exception as e:
+            print(f'course creation error: {e}')
     
     @staticmethod
     def create_url(crn: int, semester: str, year: int) -> str:
@@ -31,7 +35,7 @@ class Course:
         url += f'term_in={year}{semester_number}&crn_in={crn}'
         return url
     
-    def get_availability(self):
+    def update_availability(self):
         response = requests.get(self.url)
         if response.status_code == 503:
             raise Exception(f"Service Unavailable (503) while accessing: {self.url}")
@@ -51,7 +55,6 @@ class Course:
             seats_available = availability['seats']['remaining'] > 0
         self.waitlist_seats_available = waitlist_seats_available
         self.seats_available = seats_available
-
 
         self.major_restrictions = Course.get_major_restrictions(soup)
 
@@ -92,3 +95,29 @@ class Course:
                 break
 
         return restrictions
+
+    def generate_message(self, changes) -> str | None:
+        if not changes:
+            return None
+        message = self.name
+        for key in changes:
+            if 'waitlist' in key:
+                message += '\n'
+                # if before seats were available
+                if changes[key][0]:
+                    message += 'Waitlist changed from open to closed.'
+                else:
+                    message += 'Waitlist changed from closed to open.'
+            elif 'seats' in key:
+                message += '\n'
+                # if before seats were available
+                if changes[key][0]:
+                    message += 'Seats changed from open to closed.'
+                else:
+                    message += 'Seats changed from closed to open.'
+            else:
+                message += '\n'
+                message += 'Change in major restrictions:\n'
+                message += f'before: {changes[key][0]}\n'
+                message += f'after: {changes[key][1]}'
+        return message
