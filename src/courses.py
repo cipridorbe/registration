@@ -80,7 +80,7 @@ class Courses:
                     course.waitlist_seats_available
                 )
             
-            if prev.seats_available != course.seats_available:
+            if prev.seats_available == course.seats_available:
                 changes[course.crn]['seats_available'] = (
                     prev.seats_available,
                     course.seats_available
